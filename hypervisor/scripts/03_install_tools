@@ -1,0 +1,17 @@
+#! /bin/bash --posix
+
+set -eux
+set -o pipefail
+
+# Grab site-specific variables for build environment.
+. /etc/environment.build
+
+chgrp root /usr/local /usr/local/bin /usr/local/sbin
+chmod u=rwx,go=rx /usr/local /usr/local/bin /usr/local/sbin
+chmod g-s /usr/local /usr/local/bin /usr/local/sbin
+
+get-url "$dominator_components_directory/hyper-control.Linux" \
+  /usr/local/bin/hyper-control
+get-url "$dominator_components_directory/vm-control.Linux" \
+  /usr/local/bin/vm-control
+chmod +rx /usr/local/bin/hyper-control /usr/local/bin/vm-control

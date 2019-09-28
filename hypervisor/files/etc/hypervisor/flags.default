@@ -1,0 +1,3 @@
+initialLogDebugLevel = 1
+imageServerHostname  = imageserver
+tftpbootImageStream  = installer

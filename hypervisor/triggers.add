@@ -1,0 +1,12 @@
+[
+    {
+        "MatchLines": [
+            "/etc/default/hypervisor",
+            "/etc/init[.]d/health-agent",
+            "/etc/systemd/system/hypervisor[.]service[.d]/.*",
+            "/etc/reverse-listeners/Scotty",
+            "/usr/local/sbin/hypervisor"
+        ],
+        "Service": "hypervisor"
+    }
+]

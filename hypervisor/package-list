@@ -1,0 +1,15 @@
+bind9-host
+bridge-utils
+cryptsetup-run
+ebtables
+ifenslave
+iputils-tracepath
+kexec-tools
+lldpd
+lsof
+qemu-system-x86
+strace
+tcpdump
+traceroute
+vlan
+xz-utils

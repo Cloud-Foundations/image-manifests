@@ -1,0 +1,6 @@
+#! /bin/bash --posix
+
+set -eux
+set -o pipefail
+
+rm /etc/health-agent/tests.d/dhclient-eth0.yml

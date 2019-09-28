@@ -1,0 +1,13 @@
+{
+    "ScanExclusionList": [
+        "/data/.*",
+        "/home/.*",
+        "/hyper-volumes/.*",
+        "/tmp/.*",
+        "/var/lib/hypervisor/.*",
+        "/var/log/.*",
+        "/var/mail/.*",
+        "/var/spool/.*",
+        "/var/tmp/.*"
+    ]
+}
