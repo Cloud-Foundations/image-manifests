@@ -1,0 +1,8 @@
+sleep 2
+/usr/local/sbin/installer -logDebugLevel=2
+
+echo "Installer exited/terminated, launching shell"
+while true;  do
+    /bin/busybox sh +m
+    echo "Shell exited. Re-launching shell"
+done

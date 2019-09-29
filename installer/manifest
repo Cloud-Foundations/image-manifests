@@ -1,0 +1,11 @@
+{
+    "FilterLines": [
+        "!",
+        "/initrd[.]img",
+        "/isolinux[.]*",
+        "/ldlinux[.]c32",
+        "/pxelinux[.].*",
+        "/vmlinuz"
+    ],
+    "SourceImage":              "bootable/Debian-10/amd64"
+}

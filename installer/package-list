@@ -1,0 +1,5 @@
+busybox-static
+grub2
+isolinux
+parted
+pxelinux
