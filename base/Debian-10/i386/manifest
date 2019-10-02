@@ -1,0 +1,6 @@
+{
+    "FilterLines": [
+        "/etc/ssh/.*_key(|[.]pub)"
+    ],
+    "SourceImage": "bootable/Debian-10/i386"
+}

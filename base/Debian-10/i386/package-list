@@ -1,0 +1,11 @@
+apt-transport-https
+binutils
+grub2
+iperf3
+less
+man-db
+openssh-client
+openssh-server
+parted
+rsync
+sudo
