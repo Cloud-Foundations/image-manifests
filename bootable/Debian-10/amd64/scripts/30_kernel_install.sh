@@ -7,11 +7,24 @@ env
 ls -lF /proc/self/fd
 tty
 
+darch=$(dpkg --print-architecture)
+case "$darch" in
+  amd64)
+    arch='amd64'
+    ;;
+  i386)
+    arch='686'
+    ;;
+  *)
+    echo "Unsupported architecture: $darch"
+    exit 1
+esac
+
 apt-cache --names-only search \
-	  'linux-image-[[:digit:].-]+-amd64$'
+	  "linux-image-[[:digit:].-]+-$arch\$"
 
 main="$(apt-cache --names-only search \
-	  'linux-image-[[:digit:].-]+-amd64$' |\
+	  "linux-image-[[:digit:].-]+-$arch\$" |\
           awk '{print $1}' | sort -V | tail -n 1)"
 
 echo "Installing: $main"
