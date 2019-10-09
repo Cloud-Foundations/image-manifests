@@ -2,5 +2,5 @@
     "FilterLines": [
         "/etc/ssh/.*_key(|[.]pub)"
     ],
-    "SourceImage": "bootable/Debian-10/amd64"
+    "SourceImage": "bootable/Debian-10/$IMAGE_STREAM_LEAF_NAME"
 }
