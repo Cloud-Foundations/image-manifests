@@ -1,9 +1,0 @@
-#! /bin/bash --posix
-
-readonly config_file='/boot/grub/grub.cfg'
-if ! grub-mkconfig -o "$config_file"~; then
-    rm -f "$config_file"~
-    exit 1
-fi
-
-exec mv "$config_file"~ "$config_file"
