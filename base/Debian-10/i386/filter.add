@@ -1,3 +1,0 @@
-/etc/ssh/.*_key(|[.]pub)
-/root/[.]ssh/known_hosts
-/var/lib/sudo/.*

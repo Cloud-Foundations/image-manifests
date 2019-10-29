@@ -1,4 +1,0 @@
-#! /bin/bash --posix
-
-echo "passing test"
-exec /bin/true
