@@ -1,0 +1,86 @@
+version: "3.3"
+services:
+
+  dominator:
+    image: dominator
+    expose:
+      - 6970
+    ports:
+      - 6970:6970
+    environment:
+      HOST_IP: $HOST_IP
+      MDB_FILE: $MDB_FILE # /var/lib/mdbd/mdb.json
+    volumes: 
+      - ./volume/log/dominator:/var/log/dominator
+      - ./mdbd:/var/lib/mdbd:ro
+      - ./certs/CA.pem:/etc/ssl/CA.pem
+      - ./certs/dominator:/etc/ssl/dominator/
+      - ./certs/cli/:/home/dominator/.ssl/
+    depends_on:
+      - mdbd
+      - imageserver
+    command: -alsoLogToStderr -debug -useIP -mdbFile $MDB_FILE -imageServerHostname $HOST_IP
+
+  mdbd:
+    image: mdbd
+    expose:
+      - 6973
+    ports:
+      - 6973:6973
+    volumes: 
+      - ./secrets/collins.yaml:/etc/collins.yaml:ro
+      - ./mdbd:/var/lib/mdbd
+      - ./volume/log/mdbd:/var/log/mdbd
+      - ./certs/CA.pem:/etc/ssl/CA.pem
+      - ./certs/mdbd/:/etc/ssl/mdbd/
+    command: -alsoLogToStderr -debug
+
+  imageserver:
+    image: imageserver
+    expose:
+      - 6971
+    ports:
+      - 6971:6971
+    volumes: 
+      - ./volume/log/imageserver:/var/log/imageserver
+      - ./volume/imageserver:/var/lib/imageserver
+      - ./volume/objectserver:/var/lib/objectserver
+      - ./certs/CA.pem:/etc/ssl/CA.pem
+      - ./certs/imageserver/:/etc/ssl/imageserver/
+    command: -alsoLogToStderr -debug
+
+  imaginator:
+    image: imaginator
+    expose:
+      - 6975
+    ports:
+      - 6975:6975
+    environment:
+      HOST_IP: $HOST_IP
+      SSH_AUTH_SOCK: $SSH_AUTH_SOCK
+    volumes:
+      - ./volume/imaginator/tmp:/tmp
+      - $SSH_AUTH_SOCK:$SSH_AUTH_SOCK
+      - ./imaginator:/etc/imaginator
+      - ./volume/log/imaginator:/var/log/imaginator
+      - ./certs/CA.pem:/etc/ssl/CA.pem
+      - ./certs/imaginator/:/etc/ssl/imaginator/
+    privileged: true
+    depends_on:
+      - imageserver
+    command: -alsoLogToStderr -imageRebuildInterval 24h -imageServerHostname $HOST_IP
+
+  filegenerator:
+    image: filegenserver
+    expose:
+      - 6972
+    ports:
+      - 6972:6972
+    volumes:
+      - ./filegenserver:/var/lib/filegenserver
+      - ./filegenserver/gens:/gens
+      - ./volume/log/filegenserver:/var/log/filegenserver
+      - ./certs/CA.pem:/etc/ssl/CA.pem
+      - ./certs/filegen-server/:/etc/ssl/filegenserver/
+    command: -alsoLogToStderr
+
