@@ -28,7 +28,6 @@ services:
     ports:
       - 6973:6973
     volumes: 
-      - ./secrets/collins.yaml:/etc/collins.yaml:ro
       - ./mdbd:/var/lib/mdbd
       - ./volume/log/mdbd:/var/log/mdbd
       - ./certs/CA.pem:/etc/ssl/CA.pem
