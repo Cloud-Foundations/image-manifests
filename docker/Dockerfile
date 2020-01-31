@@ -14,7 +14,7 @@ RUN go get -d -v ./...
 RUN CGO_ENABLED=0 make
 
 # Imaginator Server
-FROM debianlive/base:latest AS imaginator
+FROM debian:buster-backports AS imaginator
 
 EXPOSE 6975
 
@@ -28,7 +28,7 @@ COPY --from=builder /go/bin/imaginator /bin/imaginator
 ENTRYPOINT ["/bin/imaginator"]
 
 # Dominator Server
-FROM debianlive/base:latest AS dominator
+FROM debian:buster-backports AS dominator
 
 EXPOSE 6970
 
@@ -52,7 +52,7 @@ USER dominator
 ENTRYPOINT ["/bin/dominator"]
 
 # Image Server
-FROM debianlive/base:latest AS imageserver
+FROM debian:buster-backports AS imageserver
 
 EXPOSE 6971
 
@@ -75,7 +75,7 @@ USER imageserver
 ENTRYPOINT ["/bin/imageserver"]
 
 # MDBD Server
-FROM debianlive/base:latest AS mdbd
+FROM debian:buster-backports AS mdbd
 
 EXPOSE 6973
 
@@ -96,7 +96,7 @@ USER mdbd
 ENTRYPOINT ["/bin/mdbd"]
 
 # Filegen Server
-FROM debianlive/base:latest AS filegenserver
+FROM debian:buster-backports AS filegenserver
 
 EXPOSE 6972
 
