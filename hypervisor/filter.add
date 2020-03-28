@@ -1,4 +1,5 @@
 /etc/crypt.file
 /etc/crypttab
+/etc/hypervisor/flags[.]extra
 /etc/network/interfaces.*
 /var/lib/hypervisor/.*
