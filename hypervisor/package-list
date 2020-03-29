@@ -10,6 +10,5 @@ lsof
 qemu-system-x86
 strace
 tcpdump
-traceroute
 vlan
 xz-utils
