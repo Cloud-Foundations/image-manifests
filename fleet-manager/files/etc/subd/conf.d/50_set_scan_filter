@@ -1,0 +1,12 @@
+{
+    "ScanExclusionList": [
+        "/data/.*",
+        "/home/.*",
+        "/tmp/.*",
+        "/var/lib/fleet-manager/.*",
+        "/var/log/.*",
+        "/var/mail/.*",
+        "/var/spool/.*",
+        "/var/tmp/.*"
+    ]
+}

@@ -1,0 +1,3 @@
+/etc/fleet-manager/flags[.]extra
+/etc/ssl/fleet-manager/.*
+/var/lib/fleet-manager/.*
