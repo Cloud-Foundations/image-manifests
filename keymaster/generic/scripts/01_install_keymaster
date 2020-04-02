@@ -1,0 +1,19 @@
+#! /bin/bash --posix
+
+set -eux
+set -o pipefail
+
+# Grab site-specific variables for build environment.
+. /etc/environment.build
+
+readonly dir='/tmp/keymaster-unpack'
+
+rm -rf "$dir" || true
+mkdir -p "$dir"
+get-url "$keymaster_directory/keymasterd.tar.gz" - | tar -C "$dir" -xz
+
+"$dir/install"
+rm -rf "$dir"
+
+mkdir -p /var/lib/keymaster /var/log/keymasterd
+chown -R keymaster /var/lib/keymaster /var/log/keymasterd
