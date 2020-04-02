@@ -1,0 +1,10 @@
+[
+    {
+        "MatchLines": [
+            "/etc/keymaster/.*",
+            "/lib/systemd/system/keymaster[.]service",
+            "/usr/sbin/keymasterd"
+        ],
+        "Service": "keymaster"
+    }
+]

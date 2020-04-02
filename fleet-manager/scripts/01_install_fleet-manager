@@ -1,0 +1,23 @@
+#! /bin/bash --posix
+
+set -eux
+set -o pipefail
+
+# Grab site-specific variables for build environment.
+. /etc/environment.build
+
+readonly dir='/tmp/fleet-manager-unpack'
+
+useradd -r fleet-manager
+rm -rf "$dir" || true
+mkdir -p "$dir"
+get-url "$dominator_components_directory/fleet-manager.tar.gz" - |\
+  tar -C "$dir" -xz
+
+"$dir/install"
+rm -rf "$dir"
+
+mkdir -p /var/{lib,log}/fleet-manager
+chown -R fleet-manager /etc/{,ssl/}fleet-manager /var/{lib,log}/fleet-manager
+chmod go= /etc/fleet-manager/IPMI.password
+systemctl enable fleet-manager

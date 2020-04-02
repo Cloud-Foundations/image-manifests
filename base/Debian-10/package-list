@@ -4,8 +4,10 @@ grub2
 iperf3
 less
 man-db
+ntpdate
 openssh-client
 openssh-server
 parted
 rsync
 sudo
+traceroute

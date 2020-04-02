@@ -1,0 +1,8 @@
+#alsoLogToStderr       = true
+desiredAddressPoolSize =  8
+initialLogDebugLevel   =  0
+ipmiPasswordFile       = /etc/fleet-manager/IPMI.password
+ipmiUsername           = ADMIN
+#manageHypervisors     = true
+maximumAddressPoolSize = 12
+minimumAddressPoolSize =  4

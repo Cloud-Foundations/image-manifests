@@ -1,0 +1,2 @@
+/etc/ssl/imageserver/cert.pem	localhost:6972
+/etc/ssl/imageserver/key.pem	localhost:6972

@@ -1,6 +1,8 @@
 {
     "FilterLines": [
-        "/etc/ssh/.*_key(|[.]pub)"
+        "/etc/ssh/.*_key(|[.]pub)",
+        "/var/log/apt/.*",
+        "/var/log/dpkg[.]log$"
     ],
     "SourceImage": "bootable/Debian-10/$IMAGE_STREAM_LEAF_NAME"
 }

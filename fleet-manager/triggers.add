@@ -1,0 +1,12 @@
+[
+    {
+        "MatchLines": [
+            "/etc/default/fleet-manager",
+            "/etc/init[.]d/health-agent",
+            "/etc/systemd/system/fleet-manager[.]service[.d]/.*",
+            "/etc/reverse-listeners/Scotty",
+            "/usr/local/sbin/fleet-manager"
+        ],
+        "Service": "fleet-manager"
+    }
+]
