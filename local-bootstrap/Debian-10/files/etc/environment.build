@@ -4,5 +4,11 @@ default_root_password='!bogus'
 # Set the URL prefix where Dominator component tarballs are located.
 dominator_components_directory=file:///n/binaries/Dominator
 
+# Set the URL prefix where the golib binaries are located.
+gilib_directory=file:///n/binaries/binaries/golib
+
 # Set the URL prefix where the health-agent tarball is located.
 health_agent_directory=file:///n/binaries/health-agent
+
+# Set the URL prefix where the keymaster tarball is located.
+keymaster_directory=file:///n/binaries/keymaster
