@@ -1,13 +1,16 @@
 apt-transport-https
+bind9-host
 binutils
+file
 grub2
 iperf3
-less
 man-db
 ntpdate
 openssh-client
 openssh-server
 parted
+pciutils
 rsync
 sudo
 traceroute
+usbutils
