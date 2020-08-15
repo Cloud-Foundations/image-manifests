@@ -20,4 +20,3 @@ rm -rf "$dir"
 mkdir -p /var/{lib,log}/fleet-manager
 chown -R fleet-manager /etc/{,ssl/}fleet-manager /var/{lib,log}/fleet-manager
 chmod go= /etc/fleet-manager/IPMI.password
-systemctl enable fleet-manager
