@@ -19,4 +19,3 @@ rm -rf "$dir"
 
 mkdir -p /var/log/imageserver
 chown -R imageserver /etc/{,ssl/}imageserver /var/log/imageserver
-systemctl enable imageserver
