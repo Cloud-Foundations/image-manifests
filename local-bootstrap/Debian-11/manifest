@@ -1,0 +1,6 @@
+{
+    "FilterLines": [
+        "/etc/motd"
+    ],
+    "SourceImage":              "bootstrap/Debian-11/$IMAGE_STREAM_LEAF_NAME"
+}
