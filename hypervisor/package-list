@@ -1,4 +1,4 @@
-bind9-host
+apcupsd
 bridge-utils
 cryptsetup-run
 ebtables
@@ -7,6 +7,7 @@ iputils-tracepath
 kexec-tools
 lldpd
 lsof
+minicom
 qemu-system-x86
 strace
 tcpdump
