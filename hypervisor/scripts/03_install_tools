@@ -12,6 +12,8 @@ chmod g-s /usr/local /usr/local/bin /usr/local/sbin
 
 get-url "$dominator_components_directory/hyper-control.Linux" \
   /usr/local/bin/hyper-control
+get-url "$dominator_components_directory/imagetool.Linux" \
+  /usr/local/bin/imagetool
 get-url "$dominator_components_directory/vm-control.Linux" \
   /usr/local/bin/vm-control
-chmod +rx /usr/local/bin/hyper-control /usr/local/bin/vm-control
+chmod +rx /usr/local/bin/{hyper-control,imagetool,vm-control}
