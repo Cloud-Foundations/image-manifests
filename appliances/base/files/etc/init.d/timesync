@@ -1,0 +1,19 @@
+#! /bin/sh
+
+do_loop()
+{
+    while true; do
+	sleep 59
+	# Update system time from the hardware clock (RTC).
+	hwclock -s -u
+    done
+}
+
+case "$1" in
+  start)
+    (do_loop < /dev/null &> /dev/null &)
+    ;;
+  default)
+    exit 1
+    ;;
+esac
