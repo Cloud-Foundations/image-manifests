@@ -21,6 +21,15 @@ mkdir /initrd.root
 (cd /initrd.root; \
  gunzip < /initrd.img | cpio -i --make-directories --numeric-uid-gid --preserve-modification-time)
 
+# Copy missing kernel modules.
+for version in $(ls /lib/modules); do
+    ln "/lib/modules/$version/kernel/crypto/algif_skcipher.ko" \
+       "/initrd.root/lib/modules/$version/kernel/crypto/algif_skcipher.ko"
+    ln "/lib/modules/$version/kernel/drivers/md/dm-crypt.ko" \
+       "/initrd.root/lib/modules/$version/kernel/drivers/md/dm-crypt.ko"
+    depmod -b /initrd.root "$version"
+done
+
 # Install installer.
 get-url "$dominator_components_directory/installer.tar.gz" - |\
   tar -C /initrd.root -xpz
@@ -44,6 +53,8 @@ ln /lib/x86_64-linux-gnu/libnss_dns* /lib/x86_64-linux-gnu/libresolv* \
 echo 'hosts: dns' > /initrd.root/etc/nsswitch.conf
 
 cp -a /initrd.overwrite/. /initrd.root
+
+touch /initrd.root/build-timestamp
 
 # Repackage initrd.
 rm /initrd.img

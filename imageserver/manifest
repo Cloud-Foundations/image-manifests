@@ -3,5 +3,5 @@
         "/var/log/apt/.*",
         "/var/log/dpkg[.]log$"
     ],
-    "SourceImage": "base/Debian-10/amd64"
+    "SourceImage": "base/Debian-11/amd64"
 }

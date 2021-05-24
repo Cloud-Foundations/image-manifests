@@ -1,0 +1,7 @@
+{
+    "FilterLines": [
+	"/usr/lib/systemd(|/.*)$",
+	"/usr/share/doc(|/.*)$"
+    ],
+    "SourceImage":              "appliances/base"
+}

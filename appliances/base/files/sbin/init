@@ -1,0 +1,21 @@
+#! /bin/sh
+
+mount -o remount,rw /
+ifconfig lo up
+ifconfig eth0 up
+udhcpc -b
+
+for script in /etc/init.d/*; do
+    service="${service##*/}"
+    [ "$service" = "*" ] && continue
+    [ "$service" = "health-agent" ] && continue
+    [ -x "$script" ] || continue
+    "$script" start
+done
+
+while true; do
+    /usr/local/sbin/health-agent
+    echo 'health-agent exited. Restarting...'
+    sync
+    sleep 1
+done

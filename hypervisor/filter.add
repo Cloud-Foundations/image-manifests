@@ -1,4 +1,5 @@
-/etc/crypt.file
+/etc/apcupsd(|/.*)$
+/etc/crypt.key
 /etc/crypttab
 /etc/hypervisor/flags[.]extra
 /etc/network/interfaces.*

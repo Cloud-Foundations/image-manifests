@@ -1,0 +1,7 @@
+#! /bin/bash --posix
+
+set -eux
+set -o pipefail
+
+systemctl disable subd
+rm /etc/health-agent/tests.d/subd.yml /usr/local/sbin/subd

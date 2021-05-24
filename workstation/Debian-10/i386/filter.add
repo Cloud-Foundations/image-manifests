@@ -1,0 +1,3 @@
+/etc/crypt.file
+/etc/crypttab
+/etc/network/interfaces.*

@@ -1,0 +1,7 @@
+{
+    "FilterLines": [
+        "/var/log/apt/.*",
+        "/var/log/dpkg[.]log$"
+    ],
+    "SourceImage": "hypervisor"
+}

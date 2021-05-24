@@ -1,1 +1,2 @@
+/etc/keymaster/server[.].*$
 /var/lib/keymaster/.*

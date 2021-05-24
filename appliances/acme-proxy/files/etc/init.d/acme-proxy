@@ -1,0 +1,22 @@
+#! /bin/sh
+
+do_loop()
+{
+    while true; do
+	/usr/local/sbin/acme-proxy
+	echo 'acme-proxy exited. Restarting...'
+	sleep 1
+    done
+}
+
+case "$1" in
+  start)
+    su acme-proxy -c "$0 loop"
+    ;;
+  loop)
+    (do_loop < /dev/null &> /dev/null &)
+    ;;
+  default)
+    exit 1
+    ;;
+esac

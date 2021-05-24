@@ -1,0 +1,20 @@
+#! /bin/bash --posix
+
+set -eux
+set -o pipefail
+
+# Grab site-specific variables for build environment.
+. /etc/environment.build
+
+readonly dir='/tmp/mdbd-unpack'
+
+useradd -r mdbd
+rm -rf "$dir" || true
+mkdir -p "$dir"
+get-url "$dominator_components_directory/mdbd.tar.gz" - | tar -C "$dir" -xz
+
+"$dir/install"
+rm -rf "$dir"
+
+mkdir -p /var/{lib,log}/mdbd
+chown -R mdbd /etc/ssl/mdbd /var/{lib,log}/mdbd
